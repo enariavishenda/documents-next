@@ -23,10 +23,10 @@ export function MainLayout({children, title = 'Next App'}) {
                         {children}
                     </main>
                 </div>
-                <footer>
-                    <a href="https://github.com/enariavishenda">Enaria Vishenda, mattco@mail.ru</a>
-                </footer>
             </div>
+            <footer>
+                <a href="https://github.com/enariavishenda">Enaria Vishenda, mattco@mail.ru</a>
+            </footer>
         </>
     )
 }

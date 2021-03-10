@@ -67,12 +67,12 @@ nav {
 }
 
 nav a {
-    color: #000;
     font-size: 22px;
 }
 
 
 a {
+    color: #000;
     font-size: 24px;
     text-decoration: none;
 }
@@ -98,11 +98,18 @@ img {
 }
 
 footer {
-    padding: 15px;
     text-align: center;
 }
 
 footer a {
+    position: fixed;
+    margin: 0 auto;
     font-size: 16px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     color: black;
 }
