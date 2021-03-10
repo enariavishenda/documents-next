@@ -1,3 +1,108 @@
 body {
     font-family: 'Raleway', sans-serif;
+    background: linear-gradient(-45deg, rgba(234, 114, 76, 0.82), rgba(231, 73, 134, 0.78), rgba(74, 192, 234, 0.82), rgba(66, 226, 188, 0.86));
+    background-size: 400% 800%;
+    -webkit-animation: gradient 15s ease infinite;
+    animation: gradient 15s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.73) 24%, rgba(82, 168, 232, 0.13) 51%, rgba(184, 56, 169, 0.14) 100%);
+    background-size: 200% auto;
+    transition: .5s;
+}
+button:hover {
+    background-position: right center;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+nav {
+    position: fixed;
+    max-width: 1200px;
+    margin: 10px auto;
+    height: 50px;
+    left: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,0.6) 74%, rgba(255,255,255,0) 100%);
+}
+
+nav a {
+    color: #000;
+    font-size: 22px;
+}
+
+
+a {
+    font-size: 24px;
+    text-decoration: none;
+}
+
+main {
+    margin-top: 70px;
+    padding: 1rem;
+}
+
+main h4 {
+    font-size: 22px;
+}
+
+img {
+    width: 500px;
+}
+
+.items {
+    text-decoration: none;
+    text-align: center;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 74%, rgba(255,255,255,0) 100%);
+}
+
+footer {
+    padding: 15px;
+    text-align: center;
+}
+
+footer a {
+    font-size: 16px;
+    color: black;
 }

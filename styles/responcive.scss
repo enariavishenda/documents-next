@@ -1,0 +1,62 @@
+nav, img {
+  width: 100%;
+}
+
+
+@media only screen and (min-width: 880px) {
+  .items {
+    width: 90%;
+    margin: 0 auto;
+  }
+  img {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 880px) {
+  nav a {
+  font-size: 24px;
+  }
+  main h1 {
+    font-size: 32px;
+  }
+  main h2 {
+    font-size: 32px;
+  }
+  main h3 {
+    font-size: 26px;
+  }
+  main h4 {
+    font-size: 32px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+
+  img {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  nav a {
+    font-size: 28px
+  }
+  nav {
+    height: 60px;
+  }
+  main {
+    margin-top: 80px;
+  }
+  main h1 {
+    font-size: 40px;
+  }
+  main h2 {
+    font-size: 40px;
+  }
+  main h3 {
+    font-size: 34px;
+  }
+  main h4 {
+    font-size: 36px;
+  }
+}
