@@ -1,8 +1,32 @@
 import {MainLayout} from "../components/MainLayout";
 import Link from "next/link";
-import Router from "next/router";
+import {useState, useEffect} from 'react';
 
-export default function Documents({document}) {
+export default function Documents({document: reqDoc}) {
+
+    const [document, setDocs] = useState(reqDoc)
+
+    useEffect(() => {
+        async function load () {
+            const res = await fetch('http://localhost:4200/document')
+            const data = await res.json()
+            setDocs(data)
+        }
+        if (!reqDoc) {
+            load()
+        }
+    }, [])
+
+    if (!document) {
+        return (
+            <MainLayout>
+                <p>
+                    Loading...
+                </p>
+            </MainLayout>
+        )
+    }
+
     return (
         <MainLayout title={'Documents Page'}>
             <h1>Documents Page</h1>
@@ -24,8 +48,12 @@ export default function Documents({document}) {
 
 }
 
-Documents.getInitialProps = async () => {
-    const res = await fetch('http://localhost:4200/document')
+//combine frontend-backend
+Documents.getInitialProps = async ({req}) => {
+    if (!req) {
+        return {document: null}
+    }
+    const res = await fetch(`${process.env.api}/document`)
     const document = await res.json()
 
     return {

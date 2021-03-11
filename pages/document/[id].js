@@ -1,24 +1,48 @@
 import {MainLayout} from "../../components/MainLayout";
-import Router from "next/router";
+import Router, {useRouter} from "next/router";
+import {useState, useEffect} from 'react';
 
-export default function Doc({document : {docDate, displayName}}) {
+export default function Doc({document: reqDocs}) {
+
+    const [document, setDocs] = useState(reqDocs)
+    const router = useRouter();
+
+    useEffect(() => {
+        async function load() {
+            const res = await fetch(`http://localhost:4200/document/${router.query.id}`)
+            const data = await res.json()
+            setDocs(data)
+        }
+        if (!reqDocs) {
+            load()
+        }
+    }, [])
+
+    if (!document) {
+        return (
+            <MainLayout>
+                <p>
+                    ...Loading
+                </p>
+            </MainLayout>
+        )
+    }
+
     return (
         <MainLayout>
             <h1>
-                {displayName}
+                {document.displayName}
             </h1>
             <li>
-                {docDate}
+                {document.docDate}
             </li>
             <button onClick={() => Router.push('/documents')}>Go back</button>
         </MainLayout>
     )
 }
-
-Doc.getInitialProps = async (ctx) => {
-    const res = await fetch(`http://localhost:4200/document/${ctx.query.id}`)
+//ssr
+export async function getServerSideProps({query}) {
+    const res = await fetch(`http://localhost:4200/document/${query.id}`)
     const document = await res.json()
-    return {
-        document
-    }
+    return {props: {document}}
 }
