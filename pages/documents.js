@@ -1,10 +1,16 @@
 import {MainLayout} from "../components/MainLayout";
 import Link from "next/link";
 import {useState, useEffect} from 'react';
+import Modal from 'react-modal';
+import {useRouter} from "next/router";
+import Doc from "./document/[id]";
+
+Modal.setAppElement("#__next")
 
 export default function Documents({document: reqDoc}) {
 
     const [document, setDocs] = useState(reqDoc)
+    const router = useRouter()
 
     useEffect(() => {
         async function load () {
@@ -33,7 +39,9 @@ export default function Documents({document: reqDoc}) {
             <ul>
                 {document.map(doc => (
                         <li key={doc.id}>
-                            <Link href={`/document/[id]`} as={`/document/${doc.id}`}>
+                            <Link
+                                href={`/documents/?id=${doc.id}`}
+                                as={`/document/${doc.id}`}>
                                 <a>
                                     {doc.displayName}
                                 </a>
@@ -42,7 +50,12 @@ export default function Documents({document: reqDoc}) {
                     )
                 )}
             </ul>
-
+            <Modal isOpen={!!router.query.id}
+                   onRequestClose={() => router.push("/documents")}
+                   className="Modal"
+                   >
+                <Doc id={router.query.id}/>
+            </Modal>
         </MainLayout>
     )
 

@@ -13,6 +13,7 @@ export default function Doc({document: reqDocs}) {
             const data = await res.json()
             setDocs(data)
         }
+
         if (!reqDocs) {
             load()
         }
@@ -20,26 +21,31 @@ export default function Doc({document: reqDocs}) {
 
     if (!document) {
         return (
-            <MainLayout>
-                <p>
-                    ...Loading
-                </p>
-            </MainLayout>
+            <p className="from-modal">
+                ...Loading
+            </p>
         )
     }
 
     return (
-        <MainLayout>
-            <h1>
+        <div className="from-modal">
+            <h3>
                 {document.displayName}
-            </h1>
+            </h3>
+            <li>
+                {document.description}
+            </li>
             <li>
                 {document.docDate}
             </li>
+            <li>
+                {document.direction}
+            </li>
             <button onClick={() => Router.push('/documents')}>Go back</button>
-        </MainLayout>
+        </div>
     )
 }
+
 //ssr
 export async function getServerSideProps({query}) {
     const res = await fetch(`http://localhost:4200/document/${query.id}`)

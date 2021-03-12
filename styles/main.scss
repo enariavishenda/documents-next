@@ -41,6 +41,7 @@ button {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.73) 24%, rgba(82, 168, 232, 0.13) 51%, rgba(184, 56, 169, 0.14) 100%);
     background-size: 200% auto;
     transition: .5s;
+    margin-top: 1em;
 }
 button:hover {
     background-position: right center;
@@ -112,4 +113,12 @@ footer a {
     justify-content: space-around;
     align-items: center;
     color: black;
+}
+
+.Modal {
+    margin: 24% auto;
+    max-width: 380px;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
 }
