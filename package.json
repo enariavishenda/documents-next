@@ -6,13 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "mock-server":  "json-server -w db.json -p 4200 -d 1500"
+    "mock-server": "json-server -w db.json -p 4200 -d 1500"
   },
   "dependencies": {
     "json-server": "^0.16.3",
     "next": "9.5.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-modal": "^3.12.1",
     "sass": "^1.32.8"
   }
 }
